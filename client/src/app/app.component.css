@@ -1,0 +1,11 @@
+.todo-list-container {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin: 5px auto;
+}
+
+.input-container {
+    width: 200px;
+    margin: 0 auto 10px;
+}
