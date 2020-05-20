@@ -19,14 +19,17 @@ func main() {
 
 	router := gin.Default()
 
-	router.GET("/ping", func (c *gin.Context)  {
-		c.JSON(200, gin.H{
-			"message": "pong",
+	api := router.Group("/api")
+	{
+		api.GET("/ping", func (c *gin.Context)  {
+			c.JSON(200, gin.H{
+				"message": "pong",
+			})
 		})
-	})
-
-	router.GET("/todo", handler.TodoGet(todos))
-	router.POST("/todo", handler.TodoPost(todos))
+		api.GET("/todo", handler.TodoGet(todos))
+		api.POST("/todo", handler.TodoPost(todos))
+	}
+	
 
 	fmt.Println("Running on port: 5000")
 	router.Run("0.0.0.0:5000")
