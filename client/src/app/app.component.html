@@ -1,7 +1,7 @@
 <div class="container">
   <div class="input-container">
     <input [(ngModel)]="text" placeholder="Add new todo..." type="text" name="addtext">
-    <button (click)="addTodo">Add</button>
+    <button (click)="addTodo()">Add</button>
   </div>
   <div class="todo-list-container" *ngFor="let item of todos">
     <div>

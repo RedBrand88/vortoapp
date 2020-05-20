@@ -31,10 +31,11 @@ export class AppComponent {
   }
 
   async addTodo() {
-    this.httpClient.post('/api/todo', {
-      title: this.text,
+    await this.httpClient.post('/api/todo', {
+      text: this.text,
       complete: this.complete
-    })
+    }).toPromise()
+
     await this.loadTodos()
     this.text = ''
     this.complete = 0
