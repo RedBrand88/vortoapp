@@ -7,6 +7,6 @@
     <div>
       {{item.text}}
     </div>
-    <input type="checkbox" name="complete">
+    <input (change)="updateTodos($event)" type="checkbox" name="complete" id="{{item.id}}" [checked]="item.complete">
   </div>
 </div>

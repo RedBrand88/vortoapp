@@ -30,9 +30,17 @@ func (conn *SQLite) Get() []Item {
 	var complete int
 	for rows.Next() {
 		rows.Scan(&id, &text, &complete)
-		items = append(items, Item{text, complete})
+		items = append(items, Item{id, text, complete})
 	}
 	return items
+}
+
+// Update returns a bool and updates an item on todo_items
+func (conn *SQLite) Update(item Item) bool {
+	stmt, err := conn.DB.Prepare("UPDATE todo_items SET complete=? WHERE id=?")
+	CheckError(err)
+	stmt.Exec(item.Complete, item.ID)
+	return true
 }
 
 // GetDBConnection creates initial todo_items table and returns connection

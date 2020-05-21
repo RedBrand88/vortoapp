@@ -28,6 +28,7 @@ func main() {
 		})
 		api.GET("/todo", handler.TodoGet(todos))
 		api.POST("/todo", handler.TodoPost(todos))
+		api.PUT("/todo", handler.TodoPut(todos))
 	}
 	
 

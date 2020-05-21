@@ -4,4 +4,5 @@ package todo
 type Store interface {
 	Get() []Item
 	Set(Item) bool
+	Update(Item) bool
 }
